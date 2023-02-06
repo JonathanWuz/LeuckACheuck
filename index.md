@@ -5,8 +5,7 @@
 ## Filters
 Sort By:
 
-![Alt text](vscode-local:/c%3A/Users/jwu20/OneDrive/Pictures/Screenshots/Screenshot%20%2889%29.png)
-**Date**    **Time**    **Shipment**    **Location**    **Contributors**
+**Date**     **Time**       **Shipment**       **Location**      **Contributors**
 
 | Date | Time | Shipment | Location | Contributors |
 | --- | --- | --- | --- | --- |
