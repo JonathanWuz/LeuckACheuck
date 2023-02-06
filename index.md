@@ -3,7 +3,8 @@
 - [Project Showcase](https://www.youtube.com/watch?v=Mp2-9soBqSo&ab_channel=JaJaBean) Nothing here yet.
 
 ## Filters
-**Sort By:**
+Sort By:
+
 **Date**    **Time**    **Shipment**    **Location**    **Contributors**
 
 | Date | Time | Shipment | Location | Contributors |
