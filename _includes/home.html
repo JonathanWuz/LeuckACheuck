@@ -1,4 +1,3 @@
-<script type="text/javascript" src="fitlers.js"></script>
 <b>Search for A Shipment:</b>
 <form action="create_User()">
     <p><label>
@@ -11,7 +10,7 @@
     </label></p>
     <p><label>
         Contributors:
-        <input type="password" name="password" id="password" required>
+        <input type="text" name="password" id="password" required>
     </label></p>
     <p><label>
         Time:
@@ -20,12 +19,13 @@
             placeholder="12:59">
     </label></p>
     <p>
-        <button type="button"
-        onclick="myFunction()">Search</button>
+        <button id = "button" onclick = "JavaScript:alert(x)">Search</button>
     </p>
     <script>
-        function myFunction() {
-            document.getElementByID("demo").innerHTML = "Shipment could not be Found"
+        if (new Date().getHours() < 18) {
+            x = 'Shipment could not be found';
+        } else if (new Date().getHours() > 18) {
+            x = 'Processing Shipment'
         }
     </script>
 </form>
