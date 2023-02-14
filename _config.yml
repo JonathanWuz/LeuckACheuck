@@ -1,5 +1,8 @@
-theme: minima
-title: "Leuck Family Reunion"
-description: "June 26 to July 1 2023"
+remote_theme: pages-themes/minimal
+plugins:
+- jekyll-remote-theme
+title: "Inventory Tracker Website"
+description: "We will change this text eventually!"
 gitorg: "https://github.com/jm1021/leuck_reunion"
+show_downloads: true
 google_analytics:
