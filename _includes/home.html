@@ -56,11 +56,10 @@
 <table>
   <thead>
   <tr>
-    <th>User ID</th>
-    <th>Name</th>
-    <th>Posts</th>
-    <th>DOB</th>
-    <th>Age</th>
+    <th>Date</th>
+    <th>Product</th>
+    <th>Cost</th>
+    <th>Stock</th>
   </tr>
   </thead>
   <tbody id="result">
@@ -73,11 +72,11 @@
     <form action="javascript:create_user()">
         <p><label>
             Date:
-            <input type="text" name="uid" id="uid" required>
+            <input type="text" name="date" id="date" required>
         </label></p>
         <p><label>
             Product:
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="product" id="product" required>
         </label></p>
         <p><label>
             Cost:
@@ -156,10 +155,10 @@
         //Validate Password (must be 6-20 characters in len)
         //verifyPassword("click");
         const body = {
-            uid: document.getElementById("uid").value,
-            name: document.getElementById("name").value,
-            password: document.getElementById("password").value,
-            dob: document.getElementById("dob").value
+            date: document.getElementById("date").value,
+            product: document.getElementById("product").value,
+            cost: document.getElementById("cost").value,
+            stock: document.getElementById("stock").value
         };
         const requestOptions = {
             method: 'POST',
@@ -196,26 +195,23 @@
     
       function add_row(data) {
         const tr = document.createElement("tr");
-        const uid = document.createElement("td");
-        const name = document.createElement("td");
+        const date = document.createElement("td");
+        const product = document.createElement("td");
         const posts = document.createElement("td")
-        const dob = document.createElement("td");
-        const age = document.createElement("td");
+        const stock = document.createElement("td");
       
     
         // obtain data that is specific to the API
-        uid.innerHTML = data.uid; 
-        name.innerHTML = data.name; 
+        date.innerHTML = data.date; 
+        product.innerHTML = data.product; 
         posts.innerHTML = data.posts.length;
-        dob.innerHTML = data.dob; 
-        age.innerHTML = data.age; 
+        stock.innerHTML = data.stock; 
     
         // add HTML to container
-        tr.appendChild(uid);
-        tr.appendChild(name);
+        tr.appendChild(date);
+        tr.appendChild(product);
         tr.appendChild(posts);
-        tr.appendChild(dob);
-        tr.appendChild(age);
+        tr.appendChild(stock);
     
         resultContainer.appendChild(tr);
       }
