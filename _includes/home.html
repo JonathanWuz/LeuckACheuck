@@ -67,7 +67,7 @@
   </tbody>
 </table>
 
-<p>Search For:</p>
+<p>Sell:</p>
 
     <form action="javascript:create_user()">
         <p><label>
@@ -90,6 +90,30 @@
             <button>Create Product</button>
         </p>
     </form>
+
+  <p>Buy:</p>
+    <form action="javascript:create_user()">
+        <p><label>
+            Date:
+            <input type="text" name="buy date" id=" buy date" required>
+        </label></p>
+        <p><label>
+            Product:
+            <input type="text" name="buy product" id="buy product" required>
+        </label></p>
+        <p><label>
+            Cost:
+            <input type="text" name="buy cost" id="buy cost" required>
+        </label></p>
+        <p><label>
+            Stock:
+            <input type="text" name="buy stock" id="buy stock">
+        </label></p>
+        <p>
+            <button>Create Product</button>
+        </p>
+      </form>
+
     <script>
       // prepare HTML result container for new output
       const resultContainer = document.getElementById("result");
