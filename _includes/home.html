@@ -1,3 +1,56 @@
+<style>
+  #inventory-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  #inventory-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
+
+  #add-activity-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  #inventory-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #inventory-table th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  #inventory-table th {
+    background-color: lightgray;
+  }
+</style>
+
 <b>Search for A Shipment:</b>
 
 <table>
@@ -19,25 +72,23 @@
 
     <form action="javascript:create_user()">
         <p><label>
-            User ID:
+            Date:
             <input type="text" name="uid" id="uid" required>
         </label></p>
         <p><label>
-            Name:
+            Product:
             <input type="text" name="name" id="name" required>
         </label></p>
         <p><label>
-            Password:
-            <input type="password" name="password" id="password" required>
-            Verify Password:
-            <input type="password" name="passwordV" id="passwordV" required>
+            Cost:
+            <input type="text" name="cost" id="cost" required>
         </label></p>
         <p><label>
-            Birthday:
-            <input type="date" name="dob" id="dob">
+            Stock:
+            <input type="text" name="stock" id="stock">
         </label></p>
         <p>
-            <button>Create</button>
+            <button>Create Product</button>
         </p>
     </form>
     <script>
