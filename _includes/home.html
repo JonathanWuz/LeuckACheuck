@@ -221,20 +221,20 @@
         const tr = document.createElement("tr");
         const date = document.createElement("td");
         const product = document.createElement("td");
-        const posts = document.createElement("td")
+        const cost = document.createElement("td")
         const stock = document.createElement("td");
       
     
         // obtain data that is specific to the API
         date.innerHTML = data.date; 
         product.innerHTML = data.product; 
-        posts.innerHTML = data.posts.length;
+        cost.innerHTML = data.cost;
         stock.innerHTML = data.stock; 
     
         // add HTML to container
         tr.appendChild(date);
         tr.appendChild(product);
-        tr.appendChild(posts);
+        tr.appendChild(cost);
         tr.appendChild(stock);
     
         resultContainer.appendChild(tr);
