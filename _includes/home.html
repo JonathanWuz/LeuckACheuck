@@ -221,7 +221,7 @@
         const tr = document.createElement("tr");
         const date = document.createElement("td");
         const product = document.createElement("td");
-        const cost = document.createElement("td")
+        const cost = document.createElement("td");
         const stock = document.createElement("td");
       
     
@@ -244,15 +244,17 @@
         var button = document.getElementById("Create-Product-Button");
         button.innerHTML = "Create Product";
 
-        var body = document.getElementsByTagName("body")[0];
-        body.appendChild(button);
-// 3. Add event handler
         button.addEventListener ("click", function() {
-        alert("unable to search database")
-        tr.appendChild("12/09/2022");
-        tr.appendChild("jonathan");
-        tr.appendChild("1246.82");
-        tr.appendChild("8");
+          alert("unable to search database");
+          document.createElement("tr");
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          tr.appendChild("12/09/2022");
+          tr.appendChild("jonathan");
+          tr.appendChild("1246.82");
+          tr.appendChild("8");
+
+          resultContainer.appendChild(tr);
 });
     </script>
 </form>
