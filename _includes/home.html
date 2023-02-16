@@ -56,11 +56,11 @@
   <table>
     <thead>
     <tr>
-      <th>User ID</th>
-      <th>Name</th>
-      <th>Posts</th>
-      <th>DOB</th>
-      <th>Age</th>
+      <th>Date</th>
+      <th>Product</th>
+      <th>Password</th>
+      <th>Cost</th>
+      <th>Stock</th>
     </tr>
     </thead>
     <tbody id="result">
@@ -68,16 +68,16 @@
     </tbody>
   </table>
   
-  <p>Create API</p>
+  <h2>Sell Product:</h2>
   
   <form action="javascript:create_user()">
       <p><label>
-          User ID:
-          <input type="text" name="uid" id="uid" required>
+          Date:
+          <input type="text" name="uid" id="uid" placeholder="MM/DD/YYYY" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" required>
       </label></p>
       <p><label>
-          Name:
-          <input type="text" name="name" id="name" required>
+          Product:
+          <input type="text" name="name" id="name" placeholder="Name" required>
       </label></p>
       <p><label>
           Password:
@@ -86,7 +86,7 @@
           <input type="password" name="passwordV" id="passwordV" required>
       </label></p>
       <p><label>
-          Birthday:
+          Cost:
           <input type="date" name="dob" id="dob">
       </label></p>
       <p>
