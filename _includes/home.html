@@ -87,7 +87,7 @@
             <input type="text" name="stock" id="stock" pattern="[0-9]{0-9}" required>
         </label></p>
         <p>
-            <button type="submit" id="create-product">Create Product</button>
+            <button onclick="myFunction()">Create Product</button>
         </p>
     </form>
 
@@ -238,6 +238,13 @@
         tr.appendChild(stock);
     
         resultContainer.appendChild(tr);
+
+        function myFunction() {
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode("Click me");
+        x.appendChild(t);
+        document.body.appendChild(x);
+}
       }
     
     </script>
