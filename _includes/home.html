@@ -89,6 +89,9 @@
         <p>
             <button id="Create-Product-Button">Create Product</button>
         </p>
+        <p>
+          <button id="Delete-Product-Button">Delete Product</button>
+      </p>
     </form>
 
   <h2>Buy:</h2>
@@ -245,7 +248,7 @@
         button.innerHTML = "Create Product";
 
         button.addEventListener ("click", function() {
-          alert("unable to search database");
+          alert("Product Successfully Uploaded to DESMOS Marketplace!");
           var table = document.getElementById("myTable");
           var row = table.insertRow(0);
           var cell1 = row.insertCell(0);
@@ -257,5 +260,11 @@
           cell3.innerHTML = "1246.82";
           cell4.innerHTML = "8";
 });
+        var button = document.getElementById("Create-Product-Button");
+        button.innerHTML = "Create Product";
+
+        button.addEventListener ("click", function() {
+          document.getElementById("myTable").deleteRow(0);
+        });        
     </script>
 </form>
