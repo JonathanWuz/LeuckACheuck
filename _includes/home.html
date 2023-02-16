@@ -87,7 +87,7 @@
             <input type="text" name="stock" id="stock" pattern="[0-9]{0-9}" required>
         </label></p>
         <p>
-            <button>Create Product</button>
+            <button id="Create-Product-Button">Create Product</button>
         </p>
     </form>
 
@@ -240,9 +240,8 @@
         resultContainer.appendChild(tr);
 
       }
-      
-      var button = document.createElement("button");
-        button.innerHTML = "Do Something";
+
+        var button = document.getElementById("Create-Product-Button");
 
 // 2. Append somewhere
         var body = document.getElementsByTagName("body")[0];
