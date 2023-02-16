@@ -242,9 +242,13 @@
       }
 
         var button = document.getElementById("Create-Product-Button");
+        button.innerHTML = "Create Product";
 
+        var body = document.getElementsByTagName("body")[0];
+        body.appendChild(button);
 // 3. Add event handler
         button.addEventListener ("click", function() {
+        alert("unable to search database")
         tr.appendChild("12/09/2022");
         tr.appendChild("jonathan");
         tr.appendChild("1246.82");
