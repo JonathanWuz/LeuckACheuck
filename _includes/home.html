@@ -63,14 +63,14 @@
                 let pre = document.querySelector('#msg pre');
                 pre.textContent = '\n' + JSON.stringify(products, '\t', 2);
 
+                localStorage.setItem('MyProductList', JSON.stringify(products));
             }
 
             const buyProduct = (ev)=>{
                 ev.preventDefault();
                 let product = {
-                    id: Date.now(),
-                    product: document.getElementById('product').value,
-                    cost: document.getElementById('cost').value,
+                    product: document.getElementById('bproduct').value,
+                    revenue: document.getElementById('cost').value,
                     stock: document.getElementById('stock').value - document.getElementById('bstock').value,
                 }
             
