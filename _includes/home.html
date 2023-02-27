@@ -43,7 +43,7 @@
 
 <h2>DESMOS Marketplace</h2>
 
-<table>
+<table id="table1">
   <thead>
   <tr>
     <th>Email</th>
@@ -76,7 +76,7 @@
         <input type="text" name="cost" id="cost" placeholder="xxxx.xx (in $)">
     </label></p>
     <p>
-        <button>Create Product</button>
+        <button type="button" onclick="myFunction()">Create Product</button>
     </p>
 </form>
 
@@ -107,7 +107,7 @@
   // prepare HTML result container for new output
   const resultContainer = document.getElementById("result");
   // prepare URL's to allow easy switch from deployment and localhost
-  var url = "https://github.com/aidenhuynh/blewupflask/blob/main/api/market.py"
+  var url = ""
   //url = "http://localhost:8086/api/users"
   
 
@@ -234,5 +234,17 @@
     resultContainer.appendChild(tr);
   }
 
+  function myFunction() {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell2 = row.insertCell(2);
+  var cell2 = row.insertCell(3);
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";
+  cell3.innerHTML = "NEW CELL2";
+  cell4.innerHTML = "NEW CELL2";
+}
 
 </script>
