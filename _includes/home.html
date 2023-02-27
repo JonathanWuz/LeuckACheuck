@@ -36,20 +36,20 @@
                 ev.preventDefault();
                 let product = {
                     id: Date.now(),
-                    product: document.getElementByID('product').value,
-                    cost: document.getElementByID('cost').value,
-                    stock: document.getElementByID('stock').value,
+                    product: document.getElementById('product').value,
+                    cost: document.getElementById('cost').value,
+                    stock: document.getElementById('stock').value,
                 }
                 products.push(product);
                 document.forms[0].reset();
 
                 console.warn('added' , {products} );
                 let pre = document.querySelector('#msg pre');
-                pre.textContent = '\n' + JSON.stringify(products, '/t', 2);
+                pre.textContent = '\n' + JSON.stringify(products, '\t', 2);
 
             }
             document.addEventListener('DOMContentLoaded', ()=>{
-                document.getElementByID('btn').addEventListener('click', addProduct);
+                document.getElementById('btn').addEventListener('click', addProduct);
             });
         </script>
     </body>
