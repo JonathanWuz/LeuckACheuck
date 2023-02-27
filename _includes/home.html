@@ -46,7 +46,7 @@
 <table>
   <thead>
   <tr>
-    <th>Date</th>
+    <th>Email</th>
     <th>Product</th>
     <th>Stock</th>
     <th>Cost</th>
@@ -59,24 +59,46 @@
 
 <form action="javascript:create_user()">
     <p><label>
-        Date:
-        <input type="text" name="uid" id="uid" required>
+        Email:
+        <input type="text" name="email" id="email" placeholder="example@gmail.com" required>
     </label></p>
     <p><label>
         Product:
-        <input type="text" name="name" id="name" required>
+        <input type="text" name="product" id="product" placeholder="product description" required>
     </label></p>
     <p><label>
         Stock:
-        <input type="text" name="password" id="password" required>
+        <input type="text" name="stock" id="stock" placeholder="# of product" required>
     </label></p>
     <p><label>
         Cost:
-        <input type="date" name="dob" id="dob">
+        <input type="text" name="cost" id="cost" placeholder="xxxx.xx (in $)">
     </label></p>
     <p>
         <button>Create Product</button>
     </p>
+</form>
+
+<form action="javascript:create_user()">
+  <p><label>
+      Email:
+      <input type="text" name="bemail" id="bemail" placeholder="example@gmail.com">
+  </label></p>
+  <p><label>
+      Product:
+      <input type="text" name="bproduct" id="bproduct" placeholder="product description" required>
+  </label></p>
+  <p><label>
+      Quantity:
+      <input type="text" name="bstock" id="bstock" placeholder="# of product" required>
+  </label></p>
+  <p><label>
+      Cost:
+      <input type="text" name="bcost" id="bcost" placeholder="xxxx.xx (in $)">
+  </label></p>
+  <p>
+      <button>Buy Product</button>
+  </p>
 </form>
 
 <script>
