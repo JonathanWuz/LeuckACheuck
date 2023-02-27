@@ -22,6 +22,35 @@
                 <label for="stock">Stock</label>
                 <input type="text" id="stock" placeholder="# of product"/>
             </div>
+            <div class = "formBox">
+                <button id="btn">Add Product</button>
+            </div>
+            <div id = "msg">
+                <pre></pre>
+            </div>
         </form>
+        <script>
+            let product = [];
+
+            const addProduct = (ev)=>{
+                ev.preventDefault();
+                let product = {
+                    id: Date.now(),
+                    product: document.getElementByID('product').value,
+                    cost: document.getElementByID('cost').value,
+                    stock: document.getElementByID('stock').value,
+                }
+                products.push(product);
+                document.form[0].reset();
+
+                console.warn('added' , {products} );
+                let pre = document.querySelector('#msg pre');
+                pre.textContent = '\n' + JSON.stringify(products, '/t', 2);
+
+            }
+            document.addEventListener('DOMContentLoaded', ()=>{
+                document.getElementByID('btn').addEventListener('click', addProduct);
+            });
+        </script>
     </body>
 </html>
