@@ -30,7 +30,7 @@
             </div>
         </form>
         <script>
-            let product = [];
+            let products = [];
 
             const addProduct = (ev)=>{
                 ev.preventDefault();
@@ -41,7 +41,7 @@
                     stock: document.getElementByID('stock').value,
                 }
                 products.push(product);
-                document.form[0].reset();
+                document.forms[0].reset();
 
                 console.warn('added' , {products} );
                 let pre = document.querySelector('#msg pre');
