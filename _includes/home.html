@@ -73,7 +73,7 @@
     </label></p>
     <p><label>
         Cost:
-        <input type="text" name="cost" id="cost" placeholder="xxxx.xx (in $)">
+        <input type="text" name="cost" id="cost" placeholder="xxxx.xx (in $)" required>
     </label></p>
     <p>
         <button type="button" onclick="myFunction()">Create Product</button>
@@ -236,26 +236,23 @@
 
   function myFunction() {
     const tr = document.createElement("tr");
-    const uid = document.createElement("td");
-    const name = document.createElement("td");
-    const posts = document.createElement("td")
-    const dob = document.createElement("td");
-    const age = document.createElement("td");
+    const email = document.createElement("td");
+    const product = document.createElement("td");
+    const cost = document.createElement("td");
+    const stock = document.createElement("td");
   
 
     // obtain data that is specific to the API
-    uid.innerHTML = data.uid; 
-    name.innerHTML = data.name; 
-    posts.innerHTML = data.posts.length;
-    dob.innerHTML = data.dob; 
-    age.innerHTML = data.age; 
+    email.innerHTML = data.email; 
+    product.innerHTML = data.product; 
+    cost.innerHTML = data.cost;
+    stock.innerHTML = data.stock; 
 
     // add HTML to container
-    tr.appendChild(uid);
-    tr.appendChild(name);
-    tr.appendChild(posts);
-    tr.appendChild(dob);
-    tr.appendChild(age);
+    tr.appendChild(email);
+    tr.appendChild(product);
+    tr.appendChild(cost);
+    tr.appendChild(stock);
 
     resultContainer.appendChild(tr);
 }
