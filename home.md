@@ -1,0 +1,251 @@
+<style>
+    table {
+        table-layout:fixed
+    }
+
+    .star:hover {
+        filter: brightness(95%);
+        transition: filter 0.2s;
+    }
+
+    .star {
+        cursor: pointer
+    }
+
+    .main td span {
+        cursor: pointer;
+    }
+
+    .quantity {
+        text-align:right
+    }
+
+    td {
+        padding:5px 10px;
+    }
+
+    input.search {
+        color: #434343;
+        border: 0px;    
+        margin-left: 2%;
+        width: 86.7%;
+        white-space: nowrap
+    }
+
+    input.check {
+        margin-right: 2%
+    }
+
+    input.adders{
+        width:100%
+    }
+</style>
+
+<h2>DESMOS Marketplace</h2>
+
+<table id="table1">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Product</th>
+    <th>Stock</th>
+    <th>Cost</th>
+  </tr>
+  </thead>
+  <tbody id="result">
+    <!-- javascript generated data -->
+  </tbody>
+</table>
+
+<h3>Sell:</h3>
+<form action="javascript:create_user()">
+    <p><label>
+        Email:
+        <input type="text" name="email" id="email" placeholder="example@gmail.com" required>
+    </label></p>
+    <p><label>
+        Product:
+        <input type="text" name="product" id="product" placeholder="product description" required>
+    </label></p>
+    <p><label>
+        Stock:
+        <input type="text" name="stock" id="stock" placeholder="# of product" required>
+    </label></p>
+    <p><label>
+        Cost:
+        <input type="text" name="cost" id="cost" placeholder="xxxx.xx (in $)" required>
+    </label></p>
+    <p>
+        <button type="button" onclick="myFunction()">Create Product</button>
+    </p>
+</form>
+
+<h3>Buy:</h3>
+<form action="javascript:create_user()">
+  <p><label>
+      Email:
+      <input type="text" name="bemail" id="bemail" placeholder="example@gmail.com">
+  </label></p>
+  <p><label>
+      Product:
+      <input type="text" name="bproduct" id="bproduct" placeholder="product description" required>
+  </label></p>
+  <p><label>
+      Quantity:
+      <input type="text" name="bstock" id="bstock" placeholder="# of product" required>
+  </label></p>
+  <p><label>
+      Cost:
+      <input type="text" name="bcost" id="bcost" placeholder="xxxx.xx (in $)">
+  </label></p>
+  <p>
+      <button>Buy Product</button>
+  </p>
+</form>
+
+<script>
+  // prepare HTML result container for new output
+  const resultContainer = document.getElementById("result");
+  // prepare URL's to allow easy switch from deployment and localhost
+  var url = ""
+  //url = "http://localhost:8086/api/users"
+  
+
+  const create_fetch = url + '/create';
+  const read_fetch = url + '/';
+
+  // Load users on page entry
+  read_users();
+
+
+  // Display User Table, data is fetched from Backend Database
+  function read_users() {
+    // prepare fetch options
+    const read_options = {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'omit', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    };
+
+    // fetch the data from API
+    fetch(read_fetch, read_options)
+      // response is a RESTful "promise" on any successful fetch
+      .then(response => {
+        // check for response errors
+        if (response.status !== 200) {
+            const errorMsg = 'Database read error: ' + response.status;
+            console.log(errorMsg);
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.innerHTML = errorMsg;
+            tr.appendChild(td);
+            resultContainer.appendChild(tr);
+            return;
+        }
+        // valid response will have json data
+        response.json().then(data => {
+            console.log(data);
+            for (let row in data) {
+              console.log(data[row]);
+              add_row(data[row]);
+            }
+        })
+    })
+    // catch fetch errors (ie ACCESS to server blocked)
+    .catch(err => {
+      console.error(err);
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.innerHTML = err;
+      tr.appendChild(td);
+      resultContainer.appendChild(tr);
+    });
+  }
+
+  function create_user(){
+    //Validate Password (must be 6-20 characters in len)
+    //verifyPassword("click");
+    const body = {
+        uid: document.getElementById("uid").value,
+        name: document.getElementById("name").value,
+        password: document.getElementById("password").value,
+        dob: document.getElementById("dob").value
+    };
+    const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            "content-type": "application/json",
+            'Authorization': 'Bearer my-token',
+        },
+    };
+
+    // URL for Create API
+    // Fetch API call to the database to create a new user
+    fetch(create_fetch, requestOptions)
+      .then(response => {
+        // trap error response from Web API
+        if (response.status !== 200) {
+          const errorMsg = 'Database create error: ' + response.status;
+          console.log(errorMsg);
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.innerHTML = errorMsg;
+          tr.appendChild(td);
+          resultContainer.appendChild(tr);
+          return;
+        }
+        // response contains valid result
+        response.json().then(data => {
+            console.log(data);
+            //add a table row for the new/created userid
+            add_row(data);
+        })
+    })
+  }
+
+  function add_row(data) {
+    const tr = document.createElement("tr");
+    const uid = document.createElement("td");
+    const name = document.createElement("td");
+    const posts = document.createElement("td")
+    const dob = document.createElement("td");
+    const age = document.createElement("td");
+  
+
+    // obtain data that is specific to the API
+    uid.innerHTML = data.uid; 
+    name.innerHTML = data.name; 
+    posts.innerHTML = data.posts.length;
+    dob.innerHTML = data.dob; 
+    age.innerHTML = data.age; 
+
+    // add HTML to container
+    tr.appendChild(uid);
+    tr.appendChild(name);
+    tr.appendChild(posts);
+    tr.appendChild(dob);
+    tr.appendChild(age);
+
+    resultContainer.appendChild(tr);
+  }
+
+  function myFunction() {
+  product = input()
+  var table = document.getElementById("table1");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  cell1.innerHTML = product;
+  cell2.innerHTML = "NEW CELL2";
+  cell3.innerHTML = "NEW CELL3";
+  cell4.innerHTML = "NEW CELL4";
+}
+
+</script>
