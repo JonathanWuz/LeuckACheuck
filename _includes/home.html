@@ -15,7 +15,7 @@
 	<!-- The user can input their guess here -->
 	<p>Guess a letter:</p>
 	<input type="text" id="guess-input">
-	<button onclick="guessLetter()">Submit</button>
+	<button class = "button" onclick="guessLetter()">Submit</button>
 	
 	<!-- The game status will be displayed here -->
 	<p id="game-status"></p>
@@ -64,4 +64,27 @@
 		}
 	</script>
 </body>
+<style>
+@mixin button-styles {
+	font-size: 1.2em;
+	padding: 30px 50px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	background: linear-gradient(to right, #00c6ff, #0072ff);
+	transition: all 0.2s ease-in-out;
+}
+	
+	.button {
+		@include button-styles;
+		width: 25%;
+		height: 150px;
+		margin: auto;
+		border-radius: 30px;
+		background: linear-gradient(to right, #fc4a1a, #f7b733);
+	}
+</style>
+
 </html>
